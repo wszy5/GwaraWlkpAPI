@@ -6,10 +6,10 @@ with open("data.json",mode="r") as file:
     x = json.load(file)
 print(x)
 app = FastAPI()
-
+random_quota = random.choice(x)
 @app.get("random")
 def random_word():
-    return(random.choice(x))
+    return(x[0])
 
 # with open("words.txt", mode="r") as file:
 #     content = [j.split(';') for j in [i.strip() for i in file.readlines()]]
