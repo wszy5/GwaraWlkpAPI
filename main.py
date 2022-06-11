@@ -4,7 +4,7 @@ import random
 
 with open("data.json",mode="r") as file:
     x = json.load(file)
-
+print(x)
 app = FastAPI()
 
 @app.get("random")
@@ -15,4 +15,4 @@ def random_word():
 #     content = [j.split(';') for j in [i.strip() for i in file.readlines()]]
 #     json = [{"word":i[0].strip(),"translation":i[1].strip(), "difficulty": 1} for i in content]
 
-
+# print(random.choice(x))
