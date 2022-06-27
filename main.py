@@ -1,4 +1,4 @@
-from fastapi import FastAPI
+from fastapi import FastAPI, Query
 import json
 import random
 
@@ -6,12 +6,16 @@ import random
 app = FastAPI()
 
 with open("data.json",mode="r",encoding="utf-8") as file:
-        x = json.load(file)
+        data = json.load(file)
 
-@app.get("/random")
-def random_word():
-    random_quota = random.choice(x)
-    return random_quota
+@app.get("/get-all")
+def get_all():
+    return data
+
+@app.get("/get-specific")
+def get_specific(amount: int = Query(1, title="amount", description="Amount of needed phrases"), level: int = Query(1, title="difficulty", description="Level of phrases difficulty")):
+    phrases = random.choices([i for i in data if i['difficulty']==level], k=amount)
+    return phrases
 
 # with open("words.txt", mode="r") as file:
 #     content = [j.split(';') for j in [i.strip() for i in file.readlines()]]
