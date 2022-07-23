@@ -3,17 +3,19 @@ import json
 import random
 
 
-app = FastAPI()
+app = FastAPI(
+    title="Gwara Wlkp API"
+)
 
 with open("data.json",mode="r",encoding="utf-8") as file:
         data = json.load(file)
 
-@app.get("/get-all")
+@app.get("/all")
 def get_all():
     return data
 
-@app.get("/get-specific")
-def get_specific(amount: int = Query(1, title="amount", description="Amount of needed phrases"), level: int = Query(1, title="difficulty", description="Level of phrases difficulty")):
+@app.get("/")
+def main(amount: int = Query(1, title="amount", description="Amount of needed phrases"), level: int = Query(1, title="difficulty", description="Level of phrases difficulty")):
     phrases = random.choices([i for i in data if i['difficulty']==level], k=amount)
     return phrases
 
