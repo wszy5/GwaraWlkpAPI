@@ -1,10 +1,19 @@
 from fastapi import FastAPI, Query
+from fastapi.middleware.cors import CORSMiddleware
 import json
 import random
 
 
 app = FastAPI(
     title="Gwara Wlkp API"
+)
+
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["*"],  # Pozwól na dostęp z dowolnej domeny
+    allow_credentials=True,
+    allow_methods=["GET", "POST", "PUT", "DELETE"],
+    allow_headers=["*"],
 )
 
 with open("data.json",mode="r",encoding="utf-8") as file:
