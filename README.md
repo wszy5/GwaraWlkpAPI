@@ -3,10 +3,10 @@
 Hi! This is the API which provides random access to words from Greater Poland dialect.
 
 # Introduction
-Open this URL: https://frog01-20911.wykr.es and start to use this API! By default, API will return one random phrase with level difficulty 1. Adding *\all* to URL will result in outputing all values from dicitionary.
+Open this URL: https://gwara-wlkp-api.vercel.app and start to use this API! By default, API will return one random phrase with level difficulty 1. Adding *\all* to URL will result in outputing all values from dicitionary.
 
 ## Docs & available parameters
-You can see avaiable documentation clicking: https://frog01-20911.wykr.es/docs
+You can see avaiable documentation clicking: https://gwara-wlkp-api.vercel.app/docs
 
 URL parameters:
 
